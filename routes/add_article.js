@@ -13,7 +13,7 @@ const storageEngine = multer.diskStorage({
 
 const add_article =  multer({
     storage: storageEngine,
-    limits: { fileSize:200000 },
+    limits: { fileSize:300000 },
     fileFilter: function(req, file, callback){
         validateFile(file, callback);
     }

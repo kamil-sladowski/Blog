@@ -70,26 +70,27 @@ function saveArticle(req, res){
       }
     }
   });
-
 }
 
 
 function updateArticle(req, res){
+
+
   upload(req, res,(error) => {
-    let document = {};
     let fullPath = "../files/" + req.file.filename;
 
-    document.title = req.body.title;
-    document.author = req.body.author;
-    document.body = req.body.body;
-    document.caption = req.body.caption;
-    document.path = fullPath;
+    let document = {
+      title: req.body.title,
+      author: req.user._id,
+      body: req.body.body,
+      caption: req.body.caption,
+      path: fullPath
+    };
 
-    var article = new Article(document);
 
     let query = {_id: req.params.id}
 
-    article.update(query, function (err) {
+    Article.update(query, document, function (err) {
       if (err) {
         console.log(err);
       } else {
