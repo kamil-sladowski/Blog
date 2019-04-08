@@ -41,7 +41,6 @@ function saveArticle(req, res){
     }else{
       if(req.file == undefined){
 
-        // res.redirect('/?msg=2');
         req.flash('failure','File undefined');
 
       }else{
@@ -153,8 +152,6 @@ function renderArticleToEditById(req, res){
 
 
 function validateArticle(req, res){
-  // req.checkBody('title','Title is required').notEmpty();
-  // req.checkBody('body','Body is required').notEmpty();
   return req.validationErrors();
 }
 

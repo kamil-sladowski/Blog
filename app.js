@@ -2,15 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
-const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 const config = require('./config/database');
 require('./config/passport')(passport);
 var path = require("path");
-var grid = require("gridfs-stream");
-var fs = require("fs");
-
 
 
 
@@ -90,6 +86,6 @@ app.use('/users', users);
 app.use('/about', about);
 app.use('/find', find_article);
 
-app.listen(8080, function(){
+app.listen(3000, function(){
   console.log('Server start');
 });
